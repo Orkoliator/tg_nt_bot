@@ -1,0 +1,6 @@
+nt_internal_oauth_secret: "some_notion_token_here"
+db_file: "db_file_name_here.db"
+google_ai_api_key: "some_gemini_token_here"
+telegram_api_id: ""
+telegram_api_hash: ""
+telegram_bot_token: ""

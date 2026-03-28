@@ -1,0 +1,1 @@
+Please copy config_template.yaml as config.yaml and put configuration data there.
