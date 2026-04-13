@@ -15,7 +15,7 @@ class TelegramLogic:
     def message_start_logic(self, peer_id):
         self.sql_connect.add_subscriber(chat_id_int = peer_id)
         return (
-            f"Привет друг, меня зовут _ {self.emoji_dict["emoji_smiling_face_with_smiling_eyes"]}"
+            f"Привет друг, меня зовут ПП Цыпа {self.emoji_dict["emoji_smiling_face_with_smiling_eyes"]}"
             f"Моя цель - помочь в организации твоего ЗОЖ "
             f"и для этого я могу предлагать тебе советы по "
             f"питанию и тренеровкам.\n"
