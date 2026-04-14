@@ -7,6 +7,12 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     environment: Test_env
+    env:
+      GOOGLE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
+      NT_INTERNAL_OAUTH_SECRET: ${{ secrets.NT_INTERNAL_OAUTH_SECRET }}
+      TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
+      TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     name: tests
     steps:
