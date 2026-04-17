@@ -9,7 +9,6 @@ class Config:
             app_path_divider = '/'
         else:
             app_path_divider = '\\'
-        #self.root_dir_path = os.path.join( os.path.dirname( __file__ ), '..' ) + app_path_divider
         self.root_dir_path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
         self.db_dir_path = self.root_dir_path + app_path_divider + "db"
 
@@ -36,7 +35,7 @@ class Config:
             self.telegram_api_hash = os.getenv("TELEGRAM_API_HASH")
             self.telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
 
-            print(f"self.root_dir_path: {self.root_dir_path}\napp_path_divider: {app_path_divider}\nDB_FILE: {os.getenv("DB_FILE")}")
+            print(f"self.root_dir_path: {self.root_dir_path}\napp_path_divider: {app_path_divider}\nDB_FILE: {os.getenv("LOCAL_DB_FILE")}")
             self.db_file = self.root_dir_path + app_path_divider + os.getenv("LOCAL_DB_FILE")
 
 
