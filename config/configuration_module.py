@@ -35,6 +35,7 @@ class Config:
             self.telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
 
             self.db_file = self.root_dir + 'db' + app_path_divider + os.getenv("DB_FILE")
+            print(self.db_file)
 
 
         with open("config/prompt.txt") as config_file:
