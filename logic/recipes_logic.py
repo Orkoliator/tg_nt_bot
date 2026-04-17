@@ -16,7 +16,7 @@ emoji_scroll = u'\U0001F4DC'
 class MealsLogic:
     
     def __init__(self):
-        self.db = SQL.SqlConnect(db_file = config.db_file)
+        self.db = SQL.SqlConnect()
         self.notion = Notion.NotionConnect(oauth_secret = config.notion_oauth)
         self.db.create_tables()
         self.meal_dict = [

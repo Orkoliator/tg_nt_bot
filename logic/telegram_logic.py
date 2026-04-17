@@ -9,13 +9,28 @@ class TelegramLogic:
             "emoji_smiling_face_with_open_mouth_and_cold_sweat": u'\U0001F605',
             "emoji_winking_face": u'\U0001F609'
         }
-        config = Config.Config()
-        self.sql_connect = SqlConnect.SqlConnect(db_file = config.db_file)
+        
+        self.sql_connect = SqlConnect.SqlConnect()
+
+        self.pattern_dict = {
+            "/start": self.message_start_logic,
+            "/help": self.message_help_logic,
+            "/sub_workout": self.message_sub_workout,
+            "/sub_meals": self.message_sub_meals,
+            "/unsub_workout": self.message_unsub_workout,
+            "/unsub_meals": self.message_unsub_meals,
+        }
+
+    def message_route(self, event_text, peer_id):
+        if event_text not in self.pattern_dict:
+            return
+        else:
+            return self.pattern_dict[event_text](peer_id)
 
     def message_start_logic(self, peer_id):
         self.sql_connect.add_subscriber(chat_id_int = peer_id)
         return (
-            f"Привет друг, меня зовут ПП Цыпа {self.emoji_dict["emoji_smiling_face_with_smiling_eyes"]}"
+            f"Привет друг, меня зовут ПП Цыпа {self.emoji_dict["emoji_smiling_face_with_smiling_eyes"]}\n"
             f"Моя цель - помочь в организации твоего ЗОЖ "
             f"и для этого я могу предлагать тебе советы по "
             f"питанию и тренеровкам.\n"
@@ -28,7 +43,7 @@ class TelegramLogic:
             f"/help - узнать что такое рекурсия.\n"
             f"/sub_workout - подписаться на рассылку тренировок\n"
             f"/sub_meals - подписаться на рассылку рецептов\n"
-            f"/unsub_workout - отписаться от рассылки тренировок"
+            f"/unsub_workout - отписаться от рассылки тренировок\n"
             f"/unsub_meals - отписаться от рассылки рецептов\n"
             f"Пожалуйста напечатай нужную команду или просто "
             f"нажми на нее в моем сообщении чтобы воспользоваться "

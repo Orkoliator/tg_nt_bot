@@ -1,9 +1,14 @@
+import config.configuration_module as Config
+
 import sqlite3, os
 
 class SqlConnect:
 
-    def __init__(self, db_file):
-        self.db_file =  db_file
+    def __init__(self):
+
+        config = Config.Config()
+        self.db_file = config.db_file
+
         self.meal_by_days = ["TodayMeal", "TomorrowMeal"]
         self.possible_tables = ["Subscribers"]
         self.possible_tables.extend(self.meal_by_days)
